@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Exercises</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" media="screen" charset="utf-8">
+  </head>
+  <body>
+
+    <div class = "container">
+      <div class = "page-header">
+        <h1>jQuery Exercises</h1>
+        <p>Open the Javascript console in Chrome and follow each of the following exercises.</p>
+      </div>
+      <div class = "row">
+        <div class = "col-md-7">
+          <h2>Using $() to select elements.</h2>
+          <p>We can use jQuery to target and manipulate the HTML Document Object Model (DOM). Enter the following into your JS console, one at a time and hit enter.</p>
+
+          <p><code>$('#exercise1Email');</code> We get back an array of items that match this query. In this case, we only have 1 element with the id of <strong>exercise1Email</strong>.</p>
+          <p><code>$('input');</code> We get back an array of all the input items on the page.</p>
+          <p><code>$('#exercise1Checkbox');</code> We get back an array that includes the single checkbox with that id in our form.</p>
+          <p><p><code>$('input');</code> We get back an array of all the input items on the page.</p>
+          <p>Enter something into the email box. Now run <code>$('#exercise1Email').val();</code> and we should get the value you entered into the field.</p>
+          <p>We can also set a value with our code. If we run <code>$('#exercise1Email').val('example@gmail.com');</code> it will change the value of the field.</p>
+          <p><code>$('#tasks');</code> will give us access to the unordered list.</p>
+          <p><code>$('#tasks li');</code> will give us an array of the list items in that list.</p>
+          <p><code>var tasks = $('#tasks li');</code> will let us save these items into a variable that we can use for later in loops, etc.</p>
+          <p><code>console.log(tasks);</code> will output our tasks to the console.</p>
+
+        </div>
+        <div class = "col-md-4 col-md-offset-1">
+          <form>
+            <div class="form-group">
+              <label for="exercise1Email">Email address</label>
+              <input type="email" class="form-control" id="exercise1Email" placeholder="Email">
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" id = "exercise1Checkbox"> Check me out
+              </label>
+            </div>
+            <button type="submit" class="btn btn-default" id = "exercise1Checkbox">Submit</button>
+          </form>
+
+          <ul id = "tasks">
+            <li>Do laundry</li>
+            <li>Do homework</li>
+            <li>Walk the dog</li>
+            <li>Go shopping</li>
+          </ul>
+        </div>
+      </div>
+      <div class = "page-header">
+        <h1>Manipulating Items</h1>
+      </div>
+      <div class = "row">
+        <div class = "col-md-7">
+          <p>Let's take a look at a list example again.</p>
+          <p>Let's select the list with <code>$('#exercise2tasks');</code></p>
+          <p>We can inject a new item into that list with the append method: <code>$('#exercise2tasks').append('&lt;li&gt;Another item&lt;/li&gt;');</code></p>
+          <p>Run that a few times and you'll see we have added a few new items.</p>
+          <p>We can remove items just as easily - let's get rid of all the list items with <code>$('#exercise2tasks li').remove();</code>
+          <p>The unordered list is still there but it no longer has any list items. Let's put one back in <code>$('#exercise2tasks').append('&lt;li&gt;Another item&lt;/li&gt;');</code></p>
+          <p>You can run these methods on any elements in the DOM that you can access via their selectors.</p>
+        </div>
+        <div class = "col-md-4 col-md-offset-1">
+          <ul id = "exercise2tasks">
+            <li>Do laundry</li>
+            <li>Do more laundry</li>
+          </ul>
+        </div>
+      </div>
+      <div class = "page-header">
+        <h1>Event Handlers</h1>
+      </div>
+      <div class = "row">
+          <div class = "col-md-7">
+            <p>If you click the button that says "click me", you will see that nothing happens.</p>
+            <p>We can change that with jQuery by defining event handlers that will fire events when a user does something. Common event handlers would be things like clicking an element or changing a value in a form.</p>
+            <p>Let's select our button with it's id selector <code>$('#exercise3button');</code> - hit enter and you'll see we've targeted the button.</p>
+            <p>Now we are going to do a click event on this button and give it a function to use: <code>$('#exercise3button').on('click', function(event) { alert('Click me button clicked'); });</code></p>
+            <p>We can remove this event handler just as easily which will stop the button from firing any events: <code>$('#exercise3button').off('click');</code></p>
+            <p>Now let's try an on change handler. This will watch the element for any changes, in the case of an text input, it will fire when the value changes. <code>$('#exercise3value').on('change', function(event) {console.log('value changed!')});</code></p>
+            <p>Now change the value in the text box and check your JS console for the output. You will have to tab out of the field to fire the event.</p>
+          </div>
+          <div class = "col-md-4 col-md-offset-1">
+            <p>
+              <button id = "exercise3button" class = "btn btn-default">click me</button>
+            </p>
+            <p>
+              Change my value: <input type = "text"  id = "exercise3value" value = "100" />
+            </p>
+          </div>
+      </div>
+    </div>
+
+  </body>
+</html>
