@@ -5,3 +5,7 @@
 body {
   padding-bottom: 200px;
 }
+
+#exercise4image {
+  display: none;
+}
